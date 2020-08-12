@@ -5,6 +5,7 @@ from pdf_splitter import PdfSplitter
 from PyPDF2 import PdfFileReader
 import PyPDF2
 import pathlib
+import shutil
 import pytest
 
 
@@ -45,9 +46,7 @@ def test_single_split():
     assert num_diff == 0
 
     # Delete created files
-    p1.unlink()
-    p2.unlink()
-    p1.parent.rmdir()
+    shutil.rmtree(p1.parent)
 
 
 def test_multi_splitter_file_len():
@@ -65,9 +64,7 @@ def test_multi_splitter_file_len():
         assert part.getNumPages() == num
 
     # Delete created files
-    for path in directory.iterdir():
-        path.unlink()
-    directory.rmdir()
+    shutil.rmtree(directory)
 
 
 def test_multi_splitter_pg_ValueError_1():
@@ -90,9 +87,7 @@ def test_multi_splitter_filenames():
     assert filenames == ['part_1.pdf', 'part_2.pdf']
 
     # Delete created files
-    for path in directory.iterdir():
-        path.unlink()
-    directory.rmdir()
+    shutil.rmtree(directory)
 
 
 def test_multi_splitter_dir_1():
@@ -100,9 +95,7 @@ def test_multi_splitter_dir_1():
     assert directory.name == 'Test dir'
 
     # Delete created files
-    for path in directory.iterdir():
-        path.unlink()
-    directory.rmdir()
+    shutil.rmtree(directory)
 
 
 def test_multi_splitter_dir_2():
@@ -110,6 +103,4 @@ def test_multi_splitter_dir_2():
     assert directory.exists()
 
     # Delete created files
-    for path in directory.iterdir():
-        path.unlink()
-    directory.rmdir()
+    shutil.rmtree(directory)
