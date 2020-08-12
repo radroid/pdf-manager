@@ -131,6 +131,4 @@ dmypy.json
 # Manual additions to .gitignore
 .vscode/settings.json
 pdf_manager/
-Fourier Transforms.pdf
-Split PDFs/
 .DS_Store
