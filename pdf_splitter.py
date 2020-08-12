@@ -46,6 +46,9 @@ class PdfSplitter:
             filenames (list, optional): specify file names. Defaults to
                                         ['first_part', 'second_part'].
 
+        Returns:
+            part_one (PosixPath object): path to the part one of the split PDF.
+            part_one (PosixPath object): path to the part two of the split PDF.
         """
         if pg_num <= 1:
             raise ValueError('The input number will return the PDF '
