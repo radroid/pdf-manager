@@ -30,7 +30,7 @@ def test_object_creation_3():
 
 def test_object_creation_4():
     with pytest.raises(TypeError):
-        PdfSplitter('pdf_manager')
+        PdfSplitter('.github')
 
 
 def test_object_creation_5():
